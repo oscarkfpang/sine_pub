@@ -10,9 +10,8 @@ RUN apt-get update && apt-get install -y git
 RUN source /opt/ros/humble/setup.bash \
  && mkdir -p /ros2_ws/src \
  && cd /ros2_ws/src \
- && git clone -b noetic-devel https://github.com/ROBOTIS-GIT/turtlebot3.git \
+ && git clone https://github.com/oscarkfpang/sine_pub.git
 
- 
 # Build the ROS2 workspace and ensure it's sourced
 RUN source /opt/ros/humble/setup.bash \
  && cd ros2_ws \
@@ -20,4 +19,4 @@ RUN source /opt/ros/humble/setup.bash \
 RUN echo "source /ros2_ws/devel/setup.bash" >> ~/.bashrc
  
 # Set the working folder at startup
-WORKDIR /turtlebot3_ws
+WORKDIR /ros2_ws
